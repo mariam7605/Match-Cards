@@ -107,15 +107,13 @@ void showEndScreen(ImageIcon image) {
     countdownTimer.stop();
     hideCardTimer.stop();
 
-    // تحجيم الصورة لتملأ الشاشة
+    
     Image scaledImg = image.getImage().getScaledInstance(boardWidth, boardHeight, Image.SCALE_SMOOTH);
     ImageIcon scaledIcon = new ImageIcon(scaledImg);
 
-    // إنشاء JLabel لعرض الصورة كخلفية
     JLabel backgroundLabel = new JLabel(scaledIcon);
-    backgroundLabel.setLayout(new BorderLayout()); // مهم علشان نضيف الزر فوق الصورة
+    backgroundLabel.setLayout(new BorderLayout()); 
 
-    // تصميم الزر مثل زر البداية
     JButton endRestartButton = new JButton("New GAME");
     endRestartButton.setFont(new Font("Algerian", Font.BOLD, 25));
     endRestartButton.setPreferredSize(new Dimension(boardWidth / 2, 40));
@@ -135,15 +133,13 @@ void showEndScreen(ImageIcon image) {
         }
     });
 
-    // بانل شفاف للزر
+    
     JPanel buttonPanel = new JPanel();
-    buttonPanel.setOpaque(false); // شفاف
+    buttonPanel.setOpaque(false); 
     buttonPanel.add(endRestartButton);
 
-    // نضيف الزر إلى أسفل الصورة
     backgroundLabel.add(buttonPanel, BorderLayout.SOUTH);
 
-    // نعرض الصورة مع الزر
     frame.getContentPane().removeAll();
     frame.getContentPane().add(backgroundLabel);
     frame.revalidate();
@@ -175,7 +171,6 @@ void showEndScreen(ImageIcon image) {
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // شاشة البداية
         JPanel introPanel = new JPanel(new BorderLayout());
         ImageIcon introImageIcon = new ImageIcon(new ImageIcon(
             getClass().getResource("/img/start.jpg"))
@@ -207,7 +202,6 @@ void showEndScreen(ImageIcon image) {
         introPanel.add(introLabel, BorderLayout.CENTER);
         frame.add(introPanel);
 
-        // لوحة العداد والأخطاء
         textLabel.setFont(new Font("Algerian", Font.PLAIN, 20));
         textLabel.setHorizontalAlignment(JLabel.CENTER);
         textLabel.setText("Errors: " + errorCount);
