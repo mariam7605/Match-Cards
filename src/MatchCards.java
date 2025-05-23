@@ -81,7 +81,7 @@ public class MatchCards {
         errorCount = 0;
         textLabel.setText("Errors: " + errorCount);
 
-        timeLeft = 10;
+        timeLeft = 120;
         timerLabel.setText("Time: " + timeLeft + "s");
         countdownTimer.restart();
 
